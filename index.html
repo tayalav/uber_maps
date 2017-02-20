@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title></title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.32.1/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.32.1/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+    </style>
+</head>
+<body>
+<style>
+    #menu {
+        position: absolute;
+        background: #fff;
+        padding: 10px;
+        font-family: 'Open Sans', sans-serif;
+    }
+</style>
+<div id='map'></div>
+<div id='menu'>
+    <input id='ciz6s6m73000y2rlrsc95s97p' type='radio' name='rtoggle' value='ciz6s6m73000y2rlrsc95s97p' checked='checked'>
+    <label for='ciz6s6m73000y2rlrsc95s97p'>Day</label>
+    <input id='cizd3iyxe00jk2ro8c1if0gfy' type='radio' name='rtoggle' value='cizd3iyxe00jk2ro8c1if0gfy'>
+    <label for='cizd3iyxe00jk2ro8c1if0gfy'>Night</label>
+</div>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoidGF5YWNoaWxsIiwiYSI6ImNpbGtxeHdnNzAwNzRvMGtxcWV4bXlmenQifQ.ymQiP_8v2syh79ZH9HU4Eg';
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/tayachill/ciz6s6m73000y2rlrsc95s97p',
+    zoom: 10,
+    center: [-99.120,19.447]
+});
+var layerList = document.getElementById('menu');
+var inputs = layerList.getElementsByTagName('input');
+function switchLayer(layer) {
+    var layerId = layer.target.id;
+    map.setStyle('mapbox://styles/tayachill/' + layerId);
+}
+for (var i = 0; i < inputs.length; i++) {
+    inputs[i].onclick = switchLayer;
+}
+</script>
+</body>
+</html>
