@@ -15,16 +15,21 @@
 <style>
     #menu {
         position: absolute;
-        background: #fff;
+        background: #000;
         padding: 10px;
-        font-family: 'Open Sans', sans-serif;
-    }
+        font-family: 'HelveticaNeue-Light';
+        color: #fff;
+        display: flex;
+        align-items: baseline;
+        width: 106px;
+        justify-content: space-between;
+          }
 </style>
 <div id='map'></div>
 <div id='menu'>
-    <input id='ciz6s6m73000y2rlrsc95s97p' type='radio' name='rtoggle' value='ciz6s6m73000y2rlrsc95s97p' checked='checked'>
+    <input id='ciz6s6m73000y2rlrsc95s97p' type='radio' name='rtoggle' checked='checked'>
     <label for='ciz6s6m73000y2rlrsc95s97p'>Day</label>
-    <input id='cizd3iyxe00jk2ro8c1if0gfy' type='radio' name='rtoggle' value='cizd3iyxe00jk2ro8c1if0gfy'>
+    <input id='cizd3iyxe00jk2ro8c1if0gfy' type='radio' name='rtoggle'>
     <label for='cizd3iyxe00jk2ro8c1if0gfy'>Night</label>
 </div>
 <script>
@@ -33,7 +38,9 @@ var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/tayachill/ciz6s6m73000y2rlrsc95s97p',
     zoom: 10,
-    center: [-99.120,19.447]
+    center: [-99.146,19.442],
+    minZoom: 8,
+    maxZoom: 18,
 });
 var layerList = document.getElementById('menu');
 var inputs = layerList.getElementsByTagName('input');
